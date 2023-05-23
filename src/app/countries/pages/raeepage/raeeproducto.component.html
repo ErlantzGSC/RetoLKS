@@ -1,0 +1,34 @@
+<ng-template #loading>
+  <div class="alert alert-info text-center">
+    Espere por favor
+  </div>
+</ng-template>
+
+<div *ngIf="raee; else loading">
+  <div class="row">
+    <div class="col-12">
+      <h2>Producto: <strong>{{raee.TipoRAEE}}</strong></h2>
+    </div>
+  </div>
+  <div class="col">
+    <h3>Informacion</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong>Codigo del Producto: </strong>{{raee.CodigoEtiqueta ? raee.CodigoEtiqueta : 'N/A'}}
+      </li>
+      <li class="list-group-item">
+        <strong>Region de tratamiento: </strong>{{raee.Region ? raee.Region : 'N/A'}}
+      </li>
+      <li class="list-group-item">
+        <strong>Proveedor encargado del producto: </strong>{{raee.Proveedor ? raee.Proveedor : 'N/A'}}
+      </li>
+      <li class="list-group-item">
+        <strong>Lectura hecha al producto: </strong>{{raee.TipoLectura ? raee.TipoLectura : 'N/A'}}
+      </li>
+      <li class="list-group-item">
+        <strong>La ubicación del producto: </strong>{{raee.Donde ? raee.Donde : 'N/A'}}
+      </li>
+    </ul>
+<button class="btn btn-warning btn-rounded mt-2" mat-raised-button (click)="goBack()">Volver</button>
+  </div>
+</div>

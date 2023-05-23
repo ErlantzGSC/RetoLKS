@@ -1,0 +1,18 @@
+<h2>LISTADO RAEE</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <button (click)="searchByRaee()">
+      Buscar
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+    <raee-table [dataSource]="ListadoRaee"></raee-table>
+  </div>
+</div>
