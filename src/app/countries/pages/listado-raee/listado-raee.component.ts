@@ -19,6 +19,8 @@ export class ListadoRaeeComponent  implements OnInit{
 
    ngOnInit(): void {
      this.ListadoRaee = this.raeeService.cacheStore.ListadoRaeeComponent.ListadoRaee
+     if(this.ListadoRaee.length === 0)
+     this.searchByRaee();
    }
 
    searchByRaee():void{
