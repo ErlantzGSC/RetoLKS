@@ -1,4 +1,4 @@
-import { Raee } from "./raee.interface";
+import { Raee, RaeeList } from "./raee.interface";
 
 export interface CacheStore{
   ListadoRaeeComponent: RaeeData;
@@ -6,7 +6,7 @@ export interface CacheStore{
 }
 export interface RaeeData{
 
-  ListadoRaee: Raee[];
+  TablaRaee: RaeeList[];
 }
 export interface PaginationData {
   currentPage: number;

@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, delay, map, of, tap } from 'rxjs';
 import { CacheStore } from '../interfaces/cache-store.interface';
@@ -26,7 +26,7 @@ export class RaeeService {
       this.cacheStore = JSON.parse(storedCache);
     } else {
       this.cacheStore = {
-        ListadoRaeeComponent: { ListadoRaee: [] },
+        ListadoRaeeComponent: { TablaRaee: [] },
         pagination: { currentPage: 1, objectsPerPage:  2}
       };
       this.saveToLocalStorage();
@@ -43,10 +43,6 @@ export class RaeeService {
   searchRaee(): Observable<Raee[]> {
     const url = `${this.apiUrl}`;
     return this.getRaeeRequest(url).pipe(
-      tap(raee => {
-        this.cacheStore.ListadoRaeeComponent = { ListadoRaee: raee };
-        this.saveToLocalStorage();
-      })
     );
   }
 

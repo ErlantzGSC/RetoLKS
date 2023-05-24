@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Raee } from '../../interfaces/raee.interface';
+import { Raee, RaeeList } from '../../interfaces/raee.interface';
 import { RaeeService } from '../../services/raee.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
@@ -21,13 +21,14 @@ export class RaeeTableComponent implements OnInit {
 
   expandedRaee: Raee | null;
 
-  @Input() dataSource: Raee[] = [];
-  columnsToDisplay: string[] = ['CargaDatosLecturasId', 'CodigoEtiqueta', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
+  @Input() dataSource: RaeeList[] = [];
+
+  columnsToDisplay: string[] = ['CodigoEtiqueta', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
   columnsToDisplayExpand: string[] = ['FechaLectura' , 'TipoLectura' , 'Donde' , 'Region', 'Provincia' , 'GeoPosicion', 'Ver Mas']
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  tableDataSource: MatTableDataSource<Raee>;
+  tableDataSource: MatTableDataSource<RaeeList>;
   constructor(private raeeService: RaeeService){}
 
   public SaveCache():void{
@@ -37,7 +38,7 @@ export class RaeeTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tableDataSource = new MatTableDataSource<Raee>(this.dataSource);
+    this.tableDataSource = new MatTableDataSource<RaeeList>(this.dataSource);
     this.tableDataSource.paginator = this.paginator;
     this.paginator.pageIndex = this.raeeService.cacheStore.pagination.currentPage;
     this.paginator.pageSize = this.raeeService.cacheStore.pagination.objectsPerPage;

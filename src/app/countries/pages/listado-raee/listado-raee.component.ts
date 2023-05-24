@@ -20,7 +20,7 @@ export class ListadoRaeeComponent  implements OnInit{
 
    ngOnInit(): void {
     this.searchByRaee();
-     this.ListadoRaee = this.raeeService.cacheStore.ListadoRaeeComponent.ListadoRaee
+     this.TablaRaee = this.raeeService.cacheStore.ListadoRaeeComponent.TablaRaee
      if(this.ListadoRaee.length === 0)
      this.searchByRaee();
    }
@@ -31,7 +31,6 @@ export class ListadoRaeeComponent  implements OnInit{
      .subscribe( (ListadoRaee: Raee[]) => {
        this.ListadoRaee = ListadoRaee;
        this.importTableList();
-       console.log(this.TablaRaee);
        this.isLoading = false;
       });
    }
