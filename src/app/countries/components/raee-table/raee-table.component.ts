@@ -24,7 +24,8 @@ export class RaeeTableComponent implements OnInit {
   @Input() dataSource: RaeeList[] = [];
 
   columnsToDisplay: string[] = ['CodigoEtiqueta', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
-  columnsToDisplayExpand: string[] = ['FechaLectura' , 'TipoLectura' , 'Donde' , 'Region', 'Provincia' , 'GeoPosicion', 'Ver Mas']
+  columnsToDisplayExpand: string[] = ['FechaLectura' , 'TipoLectura' , 'Donde' , 'Region', 'Provincia' , 'GeoPosicion']
+  columnsToDisplayVer: string[] = [...this.columnsToDisplayExpand, 'VerMas']
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -48,6 +49,5 @@ export class RaeeTableComponent implements OnInit {
     this.tableDataSource.filter = filterValue.trim().toLowerCase();
   }
 }
-
 
 

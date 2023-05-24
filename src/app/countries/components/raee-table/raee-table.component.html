@@ -45,6 +45,13 @@
                 <td mat-cell *matCellDef="let raee"> {{raee[column]}} </td>
               </ng-container>
 
+              <ng-container matColumnDef="VerMas">
+                <th mat-header-cell *matHeaderCellDef> VER MAS </th>
+                <td mat-cell *matCellDef="let raee">
+                  <a [routerLink]="['/RAEE/listadoRaee/idLectura', raee.CargaDatosLecturasId]">Info</a>
+                </td>
+                </ng-container>
+
                <!-- <div class="example-element-position"> {{raee.FechaLectura}} </div>
                 <div class="example-element-position"> {{raee.TipoLectura}} </div>
                 <div class="example-element-position"> {{raee.Donde}} </div>
@@ -53,8 +60,8 @@
                 <div class="example-element-position"> {{raee.GeoPosicion}} </div>
                 <a [routerLink]="['/RAEE/listadoRaee/idLectura', raee.CargaDatosLecturasId]">Info</a> -->
 
-                <tr mat-header-row *matHeaderRowDef="columnsToDisplayExpand"></tr>
-                <tr mat-row *matRowDef="let row; columns: columnsToDisplayExpand;"></tr>
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplayVer"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnsToDisplayVer;"></tr>
               </table>
         </div>
       </td>
