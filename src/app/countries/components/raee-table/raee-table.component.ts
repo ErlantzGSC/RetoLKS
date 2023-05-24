@@ -24,6 +24,7 @@ export class RaeeTableComponent implements OnInit {
   @Input() dataSource: RaeeList[] = [];
 
   columnsToDisplay: string[] = ['CodigoEtiqueta', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
+  columnsToDisplayNuevo: string[] = ['CodigoEtiqueta','TipoLectura', 'Donde', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
   columnsToDisplayExpand: string[] = ['FechaLectura' , 'TipoLectura' , 'Donde' , 'Region', 'Provincia' , 'GeoPosicion']
   columnsToDisplayVer: string[] = [...this.columnsToDisplayExpand, 'VerMas']
 
