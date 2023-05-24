@@ -1,22 +1,30 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Raee } from '../../interfaces/raee.interface';
 import { RaeeService } from '../../services/raee.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { NgFor, NgIf } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'raee-table',
   templateUrl: './raee-table.component.html',
-
+  styleUrls: ['./raee-table.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class RaeeTableComponent implements OnInit {
 
+  expandedRaee: Raee | null;
+
   @Input() dataSource: Raee[] = [];
-  displayedColumns: string[] = ['CargaDatosLecturasId', 'CodigoEtiqueta', 'Marca', 'Modelo', 'Peso', 'DescripcionDeResiduos', 'Ver Mas'];
+  columnsToDisplay: string[] = ['CargaDatosLecturasId', 'CodigoEtiqueta', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
+  columnsToDisplayExpand: string[] = ['FechaLectura' , 'TipoLectura' , 'Donde' , 'Region', 'Provincia' , 'GeoPosicion', 'Ver Mas']
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   tableDataSource: MatTableDataSource<Raee>;
@@ -34,6 +42,10 @@ export class RaeeTableComponent implements OnInit {
     this.paginator.pageIndex = this.raeeService.cacheStore.pagination.currentPage;
     this.paginator.pageSize = this.raeeService.cacheStore.pagination.objectsPerPage;
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.tableDataSource.filter = filterValue.trim().toLowerCase();
+}
 }
 
 

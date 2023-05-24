@@ -9,6 +9,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterModule} from '@angular/router';
 import { RaeeRoutingModule } from './raee-routing.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import{ MatInputModule } from '@angular/material/input';
+import { MatLabel } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
+
+
 
 
 
@@ -21,6 +29,10 @@ import { RaeeRoutingModule } from './raee-routing.module';
 
   ],
   imports: [
+    FormsModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+
     CommonModule,
     RaeeRoutingModule,
     SharedModule,
@@ -29,14 +41,15 @@ import { RaeeRoutingModule } from './raee-routing.module';
     MatTableModule,
     MatIconModule,
 
-
     RouterModule,
     MatPaginatorModule,
-
-
+    MatInputModule,
 
 
 
   ],
+  providers: [
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+  ]
 })
 export class RaeeModule { }
