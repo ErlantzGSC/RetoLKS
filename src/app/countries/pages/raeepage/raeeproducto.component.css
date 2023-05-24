@@ -1,0 +1,70 @@
+/* Ajustar texto a los márgenes */
+.container {
+    text-align: justify;
+  }
+
+  /* Color de fondo */
+  body {
+    background-color: #f4f8fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background-color: #eaf0f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+  }
+
+  /* Estilos para los detalles del producto */
+  .product-details {
+    margin-bottom: 40px;
+  }
+
+  .product-details h2 {
+    color: #235789;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .product-details h3 {
+    color: #235789;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .list-group-item {
+    background-color: #d4e8f2;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .list-group-item strong {
+    font-weight: bold;
+  }
+
+  .btn-warning {
+    background-color: #2c86c5;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-warning:hover {
+    background-color: #1d5c8c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+

@@ -15,7 +15,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import{ MatInputModule } from '@angular/material/input';
 import { MatLabel } from '@angular/material/form-field';
 import { MatFormField } from '@angular/material/form-field';
-
+import {GoogleMapsModule} from '@angular/google-maps';
 
 
 
@@ -44,6 +44,7 @@ import { MatFormField } from '@angular/material/form-field';
     RouterModule,
     MatPaginatorModule,
     MatInputModule,
+    GoogleMapsModule
 
 
 

@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
+import{ GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {RouterModule} from '@angular/router';
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule,
+    GoogleMapsModule
 
 
 

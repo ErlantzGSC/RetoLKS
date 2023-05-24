@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Raee, RaeeList } from '../../interfaces/raee.interface';
 import { RaeeService } from '../../services/raee.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'raee-table',
@@ -25,17 +26,19 @@ export class RaeeTableComponent implements OnInit {
 
   columnsToDisplay: string[] = ['CodigoEtiqueta', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
   columnsToDisplayNuevo: string[] = ['CodigoEtiqueta','TipoLectura', 'Donde', 'TipoRAEE', 'Marca', 'Modelo', 'Peso', 'DescripcionResiduo'];
-  columnsToDisplayExpand: string[] = ['FechaLectura' , 'TipoLectura' , 'Donde' , 'Region', 'Provincia' , 'GeoPosicion']
+  columnsToDisplayExpand: string[] = ['FechaLectura' , 'TipoLectura' , 'Donde' , 'Region', 'Provincia']
   columnsToDisplayVer: string[] = [...this.columnsToDisplayExpand, 'VerMas']
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatInput, { static: true }) input: MatInput;
   tableDataSource: MatTableDataSource<RaeeList>;
   constructor(private raeeService: RaeeService){}
 
   public SaveCache():void{
     this.raeeService.cacheStore.pagination = { currentPage: this.paginator.pageIndex
       , objectsPerPage:  this.paginator.pageSize};
+    this.raeeService.cacheStore.generalFilter = { CodigoEtiqueta: this.input.value};
       this.raeeService.saveToLocalStorage();
   }
 
@@ -44,6 +47,7 @@ export class RaeeTableComponent implements OnInit {
     this.tableDataSource.paginator = this.paginator;
     this.paginator.pageIndex = this.raeeService.cacheStore.pagination.currentPage;
     this.paginator.pageSize = this.raeeService.cacheStore.pagination.objectsPerPage;
+    this.input.value = this.raeeService.cacheStore.generalFilter.CodigoEtiqueta;
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

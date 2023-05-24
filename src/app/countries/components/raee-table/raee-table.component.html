@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>Buscar </mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  <input matInput  #filter (keyup)="applyFilter($event)" (keyup)="SaveCache()" placeholder="Codigo de etiqueta" #input>
 </mat-form-field>
 
 <div *ngIf=" dataSource === undefined" class="alert alert-warning text-center">
@@ -9,7 +9,7 @@
 
 <div class="mat-elevation-z8">
 
-  <table mat-table [dataSource]="tableDataSource" multiTemplateDataRows class="mat-elevation-z8 tablaGeneral">
+  <table mat-table [dataSource]="tableDataSource" multiTemplateDataRows class="tablaGeneral">
 
     <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
       <th mat-header-cell *matHeaderCellDef> {{column}} </th>

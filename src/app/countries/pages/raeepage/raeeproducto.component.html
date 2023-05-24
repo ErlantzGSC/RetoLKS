@@ -1,34 +1,63 @@
+<!-- Updated HTML code with CSS classes -->
 <ng-template #loading>
   <div class="alert alert-info text-center">
     Espere por favor
   </div>
 </ng-template>
 
-<div *ngIf="raee; else loading">
+<div class="container">
   <div class="row">
-    <div class="col-12">
-      <h2>Producto: <strong>{{raee.TipoRAEE}}</strong></h2>
+    <div class="col-6">
+      <div *ngIf="raee">
+        <h2>Producto: <strong>{{raee.CodigoEtiqueta}}</strong></h2>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Id del la lectura: </strong>{{raee.CargaDatosLecturasId ? raee.CargaDatosLecturasId : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Fecha de cuando se realizo la lectura: </strong>{{raee.FechaLectura ? raee.FechaLectura : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Lectura hecha al producto: </strong>{{raee.TipoLectura ? raee.TipoLectura : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>La ubicación del producto: </strong>{{raee.Donde ? raee.Donde : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Region de tratamiento: </strong>{{raee.Region ? raee.Region : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Provincia donde se tramita el producto: </strong>{{raee.Provincia ? raee.Provincia : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Proveedor encargado del producto: </strong>{{raee.Proveedor ? raee.Proveedor : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>TipoRAEE: </strong>{{raee.TipoRAEE ? raee.TipoRAEE : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Marca del producto: </strong>{{raee.Marca ? raee.Marca : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Modelo del producto: </strong>{{raee.Modelo ? raee.Modelo : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Peso del prducto: </strong>{{raee.Peso ? raee.Peso : 'N/A'}}
+          </li>
+          <li class="list-group-item">
+            <strong>Mas datos sobre el producto: </strong>{{raee.DescripcionResiduo ? raee.DescripcionResiduo : 'N/A'}}
+          </li>
+        </ul>
+        <button class="btn btn-warning btn-rounded mt-2" mat-raised-button (click)="goBack()">Volver</button>
+      </div>
     </div>
-  </div>
-  <div class="col">
-    <h3>Informacion</h3>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <strong>Codigo del Producto: </strong>{{raee.CodigoEtiqueta ? raee.CodigoEtiqueta : 'N/A'}}
-      </li>
-      <li class="list-group-item">
-        <strong>Region de tratamiento: </strong>{{raee.Region ? raee.Region : 'N/A'}}
-      </li>
-      <li class="list-group-item">
-        <strong>Proveedor encargado del producto: </strong>{{raee.Proveedor ? raee.Proveedor : 'N/A'}}
-      </li>
-      <li class="list-group-item">
-        <strong>Lectura hecha al producto: </strong>{{raee.TipoLectura ? raee.TipoLectura : 'N/A'}}
-      </li>
-      <li class="list-group-item">
-        <strong>La ubicación del producto: </strong>{{raee.Donde ? raee.Donde : 'N/A'}}
-      </li>
-    </ul>
-<button class="btn btn-warning btn-rounded mt-2" mat-raised-button (click)="goBack()">Volver</button>
+    <div class="col-6">
+
+      <div *ngIf="raee">
+        <google-map width="100%" height="400px">
+          <map-marker [position]="position" [label]="label"></map-marker>
+        </google-map>
+      </div>
+    </div>
   </div>
 </div>

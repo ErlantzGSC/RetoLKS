@@ -7,12 +7,22 @@ import { Raee } from '../../interfaces/raee.interface';
 @Component({
   selector: 'app-raee-producto',
   templateUrl: './raeeproducto.component.html',
-  styles: [
-  ]
+  styleUrls: ['./raeeproducto.component.css'],
 })
+
 export class RaeeProductoComponent implements OnInit{
 
   public raee?: Raee;
+
+  posicionSeparada:string[] |undefined = ['0','0'];
+  position = {
+    lat: Number(this.posicionSeparada![0]),
+    lng:Number(this.posicionSeparada![1])
+  }
+  label = {
+    color: 'red',
+    text: 'marcador'
+  }
 
   constructor(
     private ActivatedRoute: ActivatedRoute,
@@ -27,6 +37,7 @@ export class RaeeProductoComponent implements OnInit{
     )
     .subscribe( raee => {
       if ( !raee ) return this.router.navigateByUrl('');
+      this.separarPosicion();
       return this.raee = raee;
 
     })
@@ -42,5 +53,10 @@ export class RaeeProductoComponent implements OnInit{
          this.router.navigate(['']);
         }
     // });
+
+    separarPosicion(){
+      this.posicionSeparada = this.raee?.GeoPosicion.split(' ')
+    }
+
 
 }

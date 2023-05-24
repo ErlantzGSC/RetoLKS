@@ -24,7 +24,8 @@ export class RaeeService {
     } else {
       this.cacheStore = {
         ListadoRaeeComponent: { TablaRaee: [] },
-        pagination: { currentPage: 1, objectsPerPage:  2}
+        pagination: { currentPage: 1, objectsPerPage:  2},
+        generalFilter: { CodigoEtiqueta: ''},
       };
       this.saveToLocalStorage();
     }

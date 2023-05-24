@@ -1,6 +1,7 @@
+
 table {
   width: 100%;
-  background-color:#D6EAF8;
+  background-color:#f4f8fd;;
 }
 
 tr.example-detail-row {
@@ -16,7 +17,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 .tablaGeneral th,
 .paginator{
-  background-color: #5DADE2;
+  background-color: #235789;
   color: white;
 }
 
@@ -40,7 +41,9 @@ tr.example-element-row:not(.example-expanded-row):active {
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
-  background-color:
+  border-width: medium;
+
+
 }
 
 .tablaExpandir th,
@@ -75,4 +78,5 @@ background-color: white;;
 .ver-mas:hover {
   background-color: #0d47a1;
 }
+
 
