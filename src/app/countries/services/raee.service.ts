@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, delay, map, of, tap } from 'rxjs';
 import { CacheStore } from '../interfaces/cache-store.interface';
@@ -11,9 +11,6 @@ export class RaeeService {
 
   constructor(private http: HttpClient) {
     this.loadFromLocalStorage();
-  }
-  OnDestroy(){
-    this.saveToLocalStorage();
   }
 
   public saveToLocalStorage() {

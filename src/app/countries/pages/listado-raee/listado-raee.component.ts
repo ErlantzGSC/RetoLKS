@@ -19,9 +19,8 @@ export class ListadoRaeeComponent  implements OnInit{
    constructor(private raeeService: RaeeService){}
 
    ngOnInit(): void {
-    this.searchByRaee();
      this.TablaRaee = this.raeeService.cacheStore.ListadoRaeeComponent.TablaRaee
-     if(this.ListadoRaee.length === 0)
+     if(this.TablaRaee.length === 0)
      this.searchByRaee();
    }
 
@@ -31,6 +30,7 @@ export class ListadoRaeeComponent  implements OnInit{
      .subscribe( (ListadoRaee: Raee[]) => {
        this.ListadoRaee = ListadoRaee;
        this.importTableList();
+       this.raeeService.saveToLocalStorage();
        this.isLoading = false;
       });
    }
