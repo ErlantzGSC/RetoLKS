@@ -1,3 +1,4 @@
+<shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
 <mat-form-field>
   <mat-label>Buscar </mat-label>
   <input matInput  #filter (keyup)="applyFilter($event)" (keyup)="SaveCache()" placeholder="Codigo de etiqueta" #input>
