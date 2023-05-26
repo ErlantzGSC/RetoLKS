@@ -7,12 +7,9 @@ import { RaeeTableComponent } from '../../components/raee-table/raee-table.compo
 @Component({
   selector: 'listado-raee-page',
   templateUrl: './listado-raee.component.html',
-  styles: [
-  ]
+  styleUrls: ['./listado-raee.component.css'],
 })
 export class ListadoRaeeComponent {
-
-  @ViewChild(RaeeTableComponent, { static: true }) table!: any;
    constructor(private raeeService: RaeeService){}
 
 

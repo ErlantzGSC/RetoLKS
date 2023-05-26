@@ -78,5 +78,50 @@ background-color: white;;
 .ver-mas:hover {
   background-color: #0d47a1;
 }
+.buscar {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Coloca los elementos en una columna */
+  align-items: flex-start; /* Alinea los elementos a la izquierda verticalmente */
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.buscar h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+  margin-bottom: 10px; /* Añade un margen inferior para separar el título y el campo de búsqueda */
+  width: 100%; /* Establece el ancho del título al 100% */
+}
+
+.mat-form-field {
+  width: 100%; /* Establece el ancho del campo de formulario al 100% */
+  margin-top: 0; /* Elimina el margen superior del campo de búsqueda para acercarlo al título */
+}
+
+
+
+.mat-label {
+  font-weight: bold;
+  color: #666;
+}
+
+.mat-input-element {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  padding: 8px;
+  color: #333;
+}
+
+.mat-input-element::placeholder {
+  color: #999;
+}
+
+/* Añade más estilos según tus necesidades */
+
 
 

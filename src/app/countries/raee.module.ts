@@ -18,6 +18,7 @@ import{ MatInputModule } from '@angular/material/input';
 import { MatLabel } from '@angular/material/form-field';
 import { MatFormField } from '@angular/material/form-field';
 import {GoogleMapsModule} from '@angular/google-maps';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 
@@ -46,7 +47,8 @@ import {GoogleMapsModule} from '@angular/google-maps';
     RouterModule,
     MatPaginatorModule,
     MatInputModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+
 
 
 
